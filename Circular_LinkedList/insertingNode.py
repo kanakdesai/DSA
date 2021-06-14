@@ -4,7 +4,8 @@ class Node:
         self.next = None
 class CircularList:
     def __init__(self):
-        self.last = None
+        self.last = None #here we stat from the last node of the linked list as it is a circular one
+
     def add_to_empty(self, data):
         if self.last != None:
             return self.last
