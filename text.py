@@ -22,7 +22,6 @@ class CircularList:
         temp.next = self.last.next
         self.last.next = temp
         return self.last
-
     def add_after(self, data, key):
         if self.last == None:
             return
@@ -41,6 +40,21 @@ class CircularList:
             p = p.next
             if p == self.last.next:
                 return print("The key was not found in the node: ")
+    def split(self, head1 , head2):
+        temp = self.last
+        fast = self.last
+        slow = self.last
+        while fast.next.next is not self.last and fast.next is not self.last:
+            fast = self.last.next.next
+            slow = self.last.next
+
+        temp = head1.last.next
+        slow = head1.last
+
+        slow.next = head2.last.next
+        fast = head2.last
+
+        # return head1 and head2
     def printList(self):
         temp = self.last
         while self.last is not None:
@@ -57,5 +71,8 @@ cl.add_infront(3)
 cl.add_infront(3)
 cl.add_infront(3)
 cl.printList()
-
+cl1 = CircularList()
+cl2 = CircularList()
+cl.split(cl1, cl2)
+cl1.printList()
 
